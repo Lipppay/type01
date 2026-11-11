@@ -14,7 +14,7 @@ const SALE = {
   end: '2026-11-12T00:00:00+03:00',
   percent: 30,
   name: '11.11',
-  robokassa: '',
+  robokassa: 'https://auth.robokassa.ru/merchant/Invoice/PF4ocN_KYkeHFHLJEgjBaQ',
 };
 const PRICE = { rub: 1200, usd: 14 };
 
