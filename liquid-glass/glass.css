@@ -1,0 +1,14 @@
+/* Liquid Glass page: additions on top of ../style.css */
+.lg-page h1{font-size:clamp(64px,12.6vw,180px);letter-spacing:-.07em}
+.glass-word{display:inline-block;padding:0 .2em .05em;margin-left:.02em;border-radius:999px;background:linear-gradient(180deg,#ffffff24,#ffffff06 55%,#ffffff14);box-shadow:inset 0 2px 0 #ffffff5c,inset 0 -2px 0 #ffffff21,inset 0 0 0 1px #ffffff1c,0 24px 50px #000a;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.lg-features{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:48px}
+.lg-features article{border-top:1px solid var(--line);padding-top:20px}
+.lg-features .idx{font-size:10px;letter-spacing:.16em;font-weight:600;color:var(--accent)}
+.lg-features p{color:var(--muted);font-size:13px;line-height:1.6;margin:0}
+.lg-page .pack-price span{color:var(--muted);font-size:.5em;letter-spacing:-.02em}
+.payments .payment-link.is-soon{cursor:default;opacity:.55}
+.payments .payment-link.is-soon:hover{border-color:var(--line);background:#ffffff03}
+.soon{margin-left:auto;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:30px;padding:7px 12px}
+.pay-note{font-size:12px;line-height:1.6;color:var(--muted);margin:6px 0 0}
+@media(max-width:700px){.lg-page h1{font-size:19.5vw;line-height:1.02}.lg-page .title-row{display:block}.glass-word{margin-top:.06em}.lg-features{grid-template-columns:1fr;gap:24px;margin-top:30px}}
+.lg-page .video-bar{background:none;justify-content:flex-end}.lg-page .video-bar>span{display:none}
