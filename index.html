@@ -1,6 +1,401 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Type/01 — Lipay</title><link rel="stylesheet" href="style.css"></head>
-<body><header class="wrap"><a class="logo" href="#top">lipay<span>✳</span></a><nav aria-label="Навигация"><a href="inside.html">Что внутри</a><a class="nav-buy" href="#buy">Получить пак <span>↗</span></a></nav></header>
-<main id="top"><section class="hero wrap"><div class="hero-top"><p class="label"><i></i> TEXT ANIMATION PACK</p></div><div class="title-row"><h1>Type<span>/</span>01</h1></div><div class="demo" id="demo"><video autoplay muted loop playsinline preload="metadata" poster="assets/poster-v4.jpg" aria-label="Демонстрация пресетов Type/01"><source src="assets/demo-v4.mp4" type="video/mp4"></video><div class="video-bar"><span>TYPE/01 — FOR DAVINCI RESOLVE</span><button id="play-toggle" type="button" aria-label="Приостановить демонстрацию">Пауза Ⅱ</button></div></div><div class="hero-bottom"><a class="button" href="#buy"><span>Купить · <span data-price="usd">$14</span></span> <span>↓</span></a></div></section>
-<section class="purchase wrap" id="buy"><div class="section-heading"><p class="label">01 / ПОЛУЧИТЬ TYPE/01</p><h2>Выбери удобный<br>способ оплаты.</h2><div class="payment-art" aria-label="Мир, Mastercard и Visa"><div class="mini-card card-mir"><span class="card-brand mir-brand">МИР</span><span class="card-chip"></span><span class="card-digits">•••• &nbsp; •••• &nbsp; ••••</span><span class="card-bottom">RUB <span>↗</span></span></div><div class="mini-card card-master"><span class="master-symbol"><i></i><i></i></span><span class="card-chip"></span><span class="card-digits">•••• &nbsp; •••• &nbsp; ••••</span><span class="card-bottom">Mastercard <span>↗</span></span></div><div class="mini-card card-visa"><span class="card-brand visa-brand">VISA</span><span class="card-chip"></span><span class="card-digits">•••• &nbsp; •••• &nbsp; ••••</span><span class="card-bottom">Visa <span>↗</span></span></div></div></div><div class="payments"><a class="payment-link" data-sale-href="rub" href="https://auth.robokassa.ru/merchant/Invoice/KbiNgfwCwEqYPiaS95TKtg" target="_blank" rel="noopener noreferrer"><span class="pay-icon">₽</span><span><strong>Российская карта</strong><small>Оплата в рублях · <span data-price="rub">1200 ₽</span></small></span><span class="arrow">↗</span></a><a class="payment-link" href="https://payhip.com/b/n8yK3" target="_blank" rel="noopener noreferrer"><span class="pay-icon">$</span><span><strong>Зарубежные карты</strong><small>USD / EUR<span data-sale-note hidden></span></small></span><span class="arrow">↗</span></a></div></section></main>
-<footer class="wrap"><a class="logo" href="#top">lipay<span>✳</span></a><span>TYPE/01 · CREATED BY LIPAY</span><a class="offer-link" href="oferta/">Публичная оферта</a><a href="#top">Наверх ↑</a></footer><script src="app.js"></script><script src="sale.js"></script></body></html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>lipayshop</title>
+<meta property="og:title" content="lipayshop"><meta property="og:description" content="Пресеты, эффекты и курс по DaVinci Resolve от Lipay."><meta property="og:image" content="https://lipayshop.com/assets/basket-white.jpg"><meta property="og:url" content="https://lipayshop.com/">
+<meta name="description" content="lipayshop — пресеты, эффекты и курс по DaVinci Resolve от Lipay.">
+<style>
+:root{--ink:#0b0b0b;--muted:#7a7c84;--line:#0000001a;--lime:#cfff4c;--bg:#fff;--sys:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;font-family:var(--sys)}
+*{box-sizing:border-box}html,body{margin:0;height:100%}body{background:var(--bg);color:var(--ink);overflow:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;background:none;border:0;padding:0;cursor:pointer}
+
+/* ---------- Kerik (→ Instagram), bottom left ---------- */
+header{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:flex-start;padding:20px clamp(18px,3.4vw,44px);pointer-events:none}
+header>*{pointer-events:auto}
+.kerik{position:fixed;left:clamp(16px,3vw,40px);bottom:clamp(14px,2.4vh,26px);z-index:20;display:block;width:clamp(62px,5.8vw,88px);height:clamp(62px,5.8vw,88px);transition:opacity .4s,transform .4s cubic-bezier(.3,1.5,.5,1)}
+.kerik img{width:100%;height:100%;object-fit:contain;display:block}
+.kerik:hover{transform:rotate(-8deg) scale(1.08)}
+.kerik.ph{border:2px dashed #0003;border-radius:50%;display:grid;place-items:center;font-size:11px;color:var(--muted);text-align:center;line-height:1.1}
+.kerik.ph img{display:none}.kerik.ph::after{content:"Кэрик\a(лого)";white-space:pre}
+
+/* ---------- cover ---------- */
+.stage{position:relative;height:100svh;min-height:600px;overflow:hidden}
+.word{position:absolute;left:50%;top:19%;transform:translate(-50%,-50%);margin:0;font-weight:900;font-size:clamp(76px,17.5vw,300px);letter-spacing:-.075em;line-height:.85;white-space:nowrap;user-select:none;z-index:4;pointer-events:none}
+.word .in{display:inline-block;transform-origin:0 0}
+.word .ch{display:inline-block}
+.word .reg{font-size:.36em;font-weight:600;letter-spacing:0;vertical-align:top;margin:.02em 0 0 -.3em;line-height:1}
+body.intro .word .ch{animation:rise .8s cubic-bezier(.2,.9,.25,1) both;animation-delay:calc(var(--i) * 45ms + 80ms)}
+@keyframes rise{from{transform:translateY(55%);opacity:0;filter:blur(6px)}to{transform:none;opacity:1;filter:none}}
+body.shop .word{left:clamp(18px,3.4vw,44px);top:24px;transform:none;font-size:clamp(34px,3.4vw,48px);z-index:21;pointer-events:auto;cursor:pointer}
+body.shop .word:hover .in{opacity:.7}
+.word .in{transition:opacity .2s}
+
+.basket{position:absolute;left:50%;top:61%;width:min(64vh,78vw);aspect-ratio:1;transform:translate(-50%,-50%);z-index:2;pointer-events:none;
+  transition:transform 1s cubic-bezier(.7,0,.2,1)}
+.basket .hit{position:absolute;left:21%;right:21%;top:9%;bottom:8%;border-radius:18%;pointer-events:auto;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.basket .b{position:absolute;inset:0}
+.basket .j{position:absolute;inset:0;transform-origin:50% 60%;transition:transform .45s cubic-bezier(.3,1.4,.5,1)}
+.basket video{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.basket.near .j{transform:scale(1.05)}
+body.intro .basket .b{animation:pop 1s cubic-bezier(.3,1.45,.45,1) .25s both}
+@keyframes pop{from{transform:translateY(60px) scale(.82);opacity:0}to{transform:none;opacity:1}}
+.hint{position:absolute;left:50%;bottom:clamp(20px,4vh,40px);transform:translateX(-50%);font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center;transition:opacity .4s;white-space:nowrap}
+.hint i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px #cfff4c55;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 9px #cfff4c00}}
+body.intro .hint{animation:fade .6s 1s both}@keyframes fade{from{opacity:0}}
+
+/* ---------- shop ---------- */
+body.shop .basket{transform:translate(-50%,calc(-50% + 34vh)) scale(.22)}
+body.shop .basket.near .j{transform:scale(1.15)}
+body.shop .hint{opacity:0}
+.shelf{position:absolute;left:0;right:0;top:110px;bottom:clamp(140px,22vh,230px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,36px);padding:0 clamp(18px,4vw,72px);pointer-events:none;z-index:3}
+body.shop .shelf{pointer-events:auto}
+.card{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;min-height:0;cursor:default}
+.card .slot{flex:1;width:100%;min-height:0;position:relative}
+.obj{position:absolute;left:50%;bottom:0;width:0;height:0;perspective:1900px;visibility:hidden}
+body.shop .obj.out{visibility:visible}
+.rig{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,1.3,.5,1)}
+.face{position:absolute;overflow:hidden;backface-visibility:hidden}
+.face svg{position:absolute;inset:0;overflow:visible}
+.shade{position:absolute;inset:0;pointer-events:none}
+.card .info{opacity:0;transform:translateY(10px);transition:opacity .7s,transform .7s;margin-top:16px}
+.card.in .info{opacity:1;transform:none}
+.obj.alive{animation:alive var(--ad,3.8s) ease-in-out infinite}
+@keyframes alive{0%,100%{transform:none}30%{transform:translateY(-10px) rotate(1.1deg)}65%{transform:translateY(-4px) rotate(-1.1deg)}}
+.card h3{margin:0;font-size:clamp(17px,1.6vw,22px);font-weight:700;letter-spacing:-.02em}
+.card p{margin:6px 0 12px;font-size:13px;color:var(--muted)}
+.card .go{display:inline-flex;gap:14px;align-items:center;font-size:13px;font-weight:650;background:var(--ink);color:#fff;border-radius:30px;padding:12px 18px}
+.card .go:hover{background:#222}
+/* Type/01: a screen inside the box lights up with the demo */
+.screen{position:absolute;left:34px;top:84px;width:632px;height:436px;border-radius:8px;overflow:hidden;background:#000;opacity:0;transition:opacity .35s;box-shadow:0 0 0 2px #2c2d31}
+.screen video{width:100%;height:100%;object-fit:cover;display:block}
+.card.live .screen{opacity:1}
+/* Creator Workflow: the clapper claps, slowly */
+.hinge{position:absolute;left:0;top:0;transform-style:preserve-3d}
+#c-cw.in .hinge{animation:clap 2.8s cubic-bezier(.5,0,.3,1) infinite}
+@keyframes clap{0%,30%{transform:var(--h0) rotateZ(-17deg)}58%{transform:var(--h0) rotateZ(0deg)}64%{transform:var(--h0) rotateZ(-3deg)}70%,76%{transform:var(--h0) rotateZ(0deg)}100%{transform:var(--h0) rotateZ(-17deg)}}
+.card.live .rig{transform:var(--pose-live)}
+
+footer{position:fixed;left:0;right:0;bottom:0;z-index:4;display:flex;justify-content:space-between;padding:16px clamp(18px,3.4vw,44px);font-size:11px;color:var(--muted);pointer-events:none}
+footer a{pointer-events:auto}
+@media(max-width:760px){
+  .word{top:17%;font-size:21vw}
+  .basket{width:96vw;top:58%}
+  body.shop .word{font-size:30px;top:28px}
+  .shelf{grid-template-columns:1fr;grid-auto-rows:1fr;top:96px;bottom:140px;gap:6px}
+  .card{flex-direction:row;justify-content:flex-start;text-align:left;gap:10px}
+  .card .slot{flex:0 0 46%;height:100%}
+  .card .info{margin:0}.card p{margin:4px 0 8px}
+  body.shop .basket{transform:translate(-50%,calc(-50% + 36svh)) scale(.2)}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head>
+<body class="intro">
+<a class="kerik" id="kerik" href="https://www.instagram.com/lipppay/" target="_blank" rel="noopener" aria-label="Instagram @lipppay"><img src="assets/kerik.png" alt="" onerror="this.parentNode.classList.add('ph')"></a>
+<main class="stage">
+  <h1 class="word" id="word"><span class="in" id="wordIn"></span></h1>
+  <div class="basket" id="basket">
+    <div class="b"><div class="j"><video id="v" muted playsinline preload="auto" poster="assets/basket-white.jpg"></video></div></div>
+    <div class="hit" id="hit" role="button" tabindex="0" aria-label="Открыть магазин"></div>
+  </div>
+  <div class="hint" id="hint"><i></i>Нажми на корзинку</div>
+  <section class="shelf" id="shelf" aria-label="Продукты">
+    <article class="card" id="c-type01"><div class="slot"><div class="obj" id="o-type01"></div></div>
+      <div class="info"><h3>Type/01</h3><p>Пак текстовых анимаций для DaVinci Resolve</p><a class="go" href="type01/">Смотреть <span>→</span></a></div></article>
+    <article class="card" id="c-glass"><div class="slot"><div class="obj" id="o-glass"></div></div>
+      <div class="info"><h3>Liquid Glass</h3><p>Эффект жидкого стекла для DaVinci Resolve</p><a class="go" href="liquid-glass/">Смотреть <span>→</span></a></div></article>
+    <article class="card" id="c-cw"><div class="slot"><div class="obj" id="o-cw"></div></div>
+      <div class="info"><h3>Creator Workflow</h3><p>Авторский курс по DaVinci Resolve</p><a class="go" href="https://creatorworkflow.pro/">Смотреть <span>→</span></a></div></article>
+  </section>
+</main>
+<footer><span></span><a href="oferta/">Публичная оферта</a></footer>
+<script>
+// lipayshop home (draft).
+// Cover: the wordmark rises letter by letter, the basket pops in on the first frame of «корзинка — белый фон.mp4»;
+// hovering it plays that video (rest → shake → settle), it keeps going while the cursor stays and stops on the resting frame after.
+// Click: the wordmark flies to the top-left corner, the basket sinks, the products fly out of it in arcs (back: the small basket or Esc).
+// The products are live 3D: the Type/01 box (CSS 3D, a screen with the demo lights up on hover), the Liquid Glass tile
+// (WebGL glass from the TG GIF, flows with the drop on hover) and the Creator Workflow slate (CSS 3D, claps on hover).
+const IG_URL = 'https://www.instagram.com/lipppay/';
+const SYS = getComputedStyle(document.documentElement).getPropertyValue('--sys');
+const $ = id => document.getElementById(id), NS = 'http://www.w3.org/2000/svg';
+const touch = matchMedia('(hover: none)').matches;
+if (IG_URL) $('kerik').href = IG_URL;
+
+// ---------- wordmark letters
+$('wordIn').innerHTML = [...'lipayshop'].map((c, i) => `<span class="ch" style="--i:${i}">${c}</span>`).join('') + '<span class="ch reg" style="--i:10" aria-hidden="true">®</span>';
+setTimeout(() => document.body.classList.remove('intro'), 2200);
+
+// ---------- the basket
+const v = $('v'), basket = $('basket');
+const safari = /^((?!chrome|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent);
+v.src = 'assets/basket-white.mp4';             // «корзинка — белый фон.mp4» as it is (H.264, plays everywhere)
+const hit = $('hit');
+const SHAKE_FROM = .8, CALM_AFTER = 3.5;     // in the clip: calm until ~0.9 s, shake, calm again after ~3.4 s; the last frame = the first
+let hovering = false;
+function shake() { if (v.paused && (v.currentTime < SHAKE_FROM || v.currentTime > CALM_AFTER)) v.currentTime = SHAKE_FROM; else if (v.currentTime > CALM_AFTER) v.currentTime = SHAKE_FROM; v.play().catch(() => {}); }
+v.addEventListener('ended', () => {
+  if (hovering) { v.currentTime = SHAKE_FROM; v.play().catch(() => {}); }   // keeps shaking while the cursor is on it
+  else if (touch) { v.currentTime = 0; v.play().catch(() => {}); }        // phones: no hover, so it just loops
+  else v.currentTime = 0;                                                  // rests on the first frame (= the last one)
+});
+if (touch) v.play().catch(() => {});
+// on opening: once the letters are up, one pass of the shake by itself; after that it shakes on hover only
+let intro = setTimeout(() => { intro = 0; if (!hovering && !document.body.classList.contains('shop')) { v.currentTime = SHAKE_FROM; v.play().catch(() => {}); } }, 1100);
+hit.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { hovering = true; basket.classList.add('near'); shake(); } });
+hit.addEventListener('pointerleave', () => { hovering = false; basket.classList.remove('near'); });   // the current pass plays out and stops
+
+// ---------- helpers for the 3D products
+const el = (tag, cls, css = {}) => { const e = document.createElement(tag); if (cls) e.className = cls; Object.assign(e.style, css); return e; };
+const sv = (tag, a = {}, text) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (text != null) e.textContent = text; return e; };
+function fit(t, width, start, step = 2) { let s = start; t.setAttribute('font-size', s); while (t.getComputedTextLength() > width && s > 8) { s -= step; t.setAttribute('font-size', s); } return s; }
+function svgIn(f, w, h) { const s = sv('svg', { width: w, height: h, viewBox: `0 0 ${w} ${h}` }); f.appendChild(s); return s; }
+// a rig with a pose and a scale inside an .obj; returns {rig, face(parent,w,h,transform,bg,fill)}
+function makeRig(obj, pose, poseLive, scale, lift) {
+  const rig = el('div', 'rig'); obj.appendChild(rig);
+  rig.style.transform = `translateY(${-lift}px) scale(${scale}) ${pose}`;
+  obj.closest('.card').style.setProperty('--pose-live', `translateY(${-lift - 10}px) scale(${scale * 1.04}) ${poseLive}`);
+  const face = (parent, w, h, tr, bg, fill) => { const f = el('div', 'face', { width: w + 'px', height: h + 'px', left: -w / 2 + 'px', top: -h / 2 + 'px', transform: tr, background: bg, outline: `1.5px solid ${fill}` }); parent.appendChild(f); return f; };
+  return { rig, face };
+}
+const scaleFor = () => innerWidth <= 760 ? Math.min(.17, (innerHeight - 236) / 3 / 1150) : Math.min(.4, innerHeight / 2300 + .02);
+
+// ---------- Type/01 box (the promo v5 design)
+function buildType01() {
+  const BW = 700, BH = 900, BD = 200, fill = '#121214', s = scaleFor();
+  const { rig, face } = makeRig($('o-type01'), 'rotateX(-11deg) rotateY(30deg)', 'rotateX(-9deg) rotateY(18deg)', s, BH * s / 2 + 8);
+  face(rig, BW, BH, `rotateY(180deg) translateZ(${BD / 2}px)`, 'rgb(20,20,22)', fill);
+  face(rig, BD, BH, `rotateY(90deg) translateZ(${BW / 2}px)`, 'rgb(14,14,16)', fill);
+  face(rig, BW, BD, `rotateX(-90deg) translateZ(${BH / 2}px)`, 'rgb(14,14,16)', fill);
+  const F = face(rig, BW, BH, `translateZ(${BD / 2}px)`, 'linear-gradient(180deg,rgb(31,32,36),rgb(11,11,13))', fill);
+  F.style.boxShadow = 'inset 0 0 0 2px rgb(64,65,70)';
+  const order = ['01 Wave Rise', '02 Wave Out', '03 Wave Drop', '04 Left Rise', '05 Random Rise', '06 Rise Words', '07 Drop In', '08 Drop Inside', '09 Drop Outside', '10 Drop Words', '11 Blur Right', '12 Left Blur', '13 Type Left', '14 Type Right', '15 Echo Reveal', '16 Punch Pop', '17 Soft Pop', '18 Timer Min', '19 Timer Sec', '20 Snake Text', '21 Domino Rise', '0.1 First', '0.2 Second', '0.3 Third', '0.4 Fourth', '0.5 Fifth', '0.6 Sixth', '0.7 Seventh', '0.8 Eighth', '0.9 Last'];
+  order.forEach((n, i) => {
+    const cx = BW / 2 + (i < 15 ? -166 : 166), cy = 113.5 + 50 * (i % 15);
+    const c = el('div', '', { position: 'absolute', left: cx - 150 + 'px', top: cy - 21.5 + 'px', width: '298px', height: '41px', border: '1px solid #2a2a2d', borderRadius: '6px', background: '#242426', boxSizing: 'content-box' });
+    const im = el('img', '', { position: 'absolute', left: '1px', top: '1px', width: '70px', height: '39px', borderRadius: '4.5px', objectFit: 'cover' }); im.src = 'assets/presets/' + n + '.png'; im.alt = ''; c.appendChild(im);
+    const t = el('span', '', { position: 'absolute', left: '83px', top: 0, lineHeight: '41px', font: `500 15.5px ${SYS}`, color: '#cecdd2', whiteSpace: 'nowrap' }); t.textContent = n; c.appendChild(t);
+    F.appendChild(c);
+  });
+  const scr = el('div', 'screen'); const vid = el('video'); Object.assign(vid, { muted: true, loop: true, playsInline: true, preload: 'none' }); vid.src = 'assets/demo-v4.mp4'; scr.appendChild(vid); F.appendChild(scr);
+  F.appendChild(el('div', 'shade', { background: 'linear-gradient(180deg,transparent 30%,rgba(8,8,10,.8) 52%,rgba(8,8,10,.8))' }));
+  const s1 = svgIn(F, BW, BH);
+  s1.appendChild(sv('text', { x: 34, y: 52, 'font-family': SYS, 'font-weight': 600, 'font-size': 24, fill: 'rgb(150,150,156)' }, 'Titles'));
+  s1.appendChild(sv('text', { x: BW - 34, y: 52, 'text-anchor': 'end', 'font-family': SYS, 'font-weight': 700, 'font-size': 22, fill: 'rgb(110,110,116)' }, 'TYPE/01'));
+  s1.appendChild(sv('line', { x1: 34, y1: 66, x2: BW - 34, y2: 66, stroke: 'rgb(55,55,60)', 'stroke-width': 2 }));
+  const tt = sv('text', { x: 44, y: 610, 'font-family': SYS, 'font-weight': 900, fill: '#fff', 'letter-spacing': -3 }, 'Type/01'); s1.appendChild(tt); fit(tt, BW - 88, 170);
+  const st = sv('text', { x: 46, y: 690, 'font-family': SYS, 'font-weight': 900, fill: 'rgb(255,150,40)', 'letter-spacing': 3 }, 'TEXT ANIMATION PACK'); s1.appendChild(st); fit(st, BW - 92, 60);
+  s1.appendChild(sv('image', { href: 'assets/davinci.png', x: 44, y: 772, width: 62, height: 62 }));
+  s1.appendChild(sv('text', { x: 122, y: 812, 'font-family': SYS, 'font-weight': 600, 'font-size': 30, fill: 'rgb(225,225,230)' }, 'for DaVinci Resolve'));
+  F.appendChild(el('div', 'shade', { background: 'linear-gradient(118deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,.025) 22%,transparent 46%)' }));
+  const L = face(rig, BD, BH, `rotateY(-90deg) translateZ(${BW / 2}px)`, 'linear-gradient(180deg,rgb(24,24,27),rgb(9,9,11))', fill);
+  L.style.boxShadow = 'inset 0 0 0 2px rgb(56,57,62)';
+  const s2 = svgIn(L, BD, BH), g = sv('g', { transform: `translate(0,740) rotate(-90)` }); s2.appendChild(g);
+  const ta = sv('text', { x: 0, 'font-family': SYS, 'font-weight': 900, fill: '#fff' }, 'TYPE/01'), tb = sv('text', { 'font-family': SYS, 'font-weight': 900, fill: 'rgb(255,150,40)', 'letter-spacing': 2 }, 'TEXT ANIMATION PACK');
+  g.appendChild(ta); g.appendChild(tb);
+  let fa = 74, fb = 46; for (;;) { ta.setAttribute('font-size', fa); tb.setAttribute('font-size', fb); const la = ta.getComputedTextLength(), lb = tb.getComputedTextLength(); if (la + 28 + lb <= 700 || fa < 20) { const base = BD / 2 + fa * .36; ta.setAttribute('y', base); tb.setAttribute('y', base); tb.setAttribute('x', la + 28); break; } fa -= 2; fb -= 1; }
+  s2.appendChild(sv('image', { href: 'assets/davinci.png', x: 65, y: 790, width: 70, height: 70 }));
+  L.appendChild(el('div', 'shade', { background: 'rgba(0,0,0,.28)' }));
+  const T = face(rig, BW, BD, `rotateX(90deg) translateZ(${BH / 2}px)`, 'linear-gradient(180deg,rgb(48,48,53),rgb(30,30,33))', fill);
+  T.style.boxShadow = 'inset 0 0 0 2px rgb(70,70,76)';
+  return { start: () => vid.play().catch(() => {}), stop: () => vid.pause() };
+}
+
+// ---------- Creator Workflow slate
+function buildCW() {
+  const W = 900, H = 640, D = 26, SH = 98, SD = 24, GAP = 3, GOLD = '#c8ad69', CH = 'rgba(236,236,238,.82)', LB = '#8f929b', s = scaleFor() * .92;
+  const { rig } = makeRig($('o-cw'), 'rotateX(-10deg) rotateY(24deg)', 'rotateX(-8deg) rotateY(14deg)', s, (H + SH) * s / 2 + 4);
+  const box = (parent, cx, cy, w, h, d, bg, fill) => {
+    const g = el('div', 'rig', { transform: `translate3d(${cx}px,${cy}px,0)`, transition: 'none' }); parent.appendChild(g);
+    const mk = (fw, fh, tr, b) => { const f = el('div', 'face', { width: fw + 'px', height: fh + 'px', left: -fw / 2 + 'px', top: -fh / 2 + 'px', transform: tr, background: b, outline: `1.2px solid ${fill}` }); g.appendChild(f); return f; };
+    mk(w, h, `rotateY(180deg) translateZ(${d / 2}px)`, bg.back); mk(w, d, `rotateX(-90deg) translateZ(${h / 2}px)`, bg.bottom);
+    mk(d, h, `rotateY(90deg) translateZ(${w / 2}px)`, bg.side);
+    const Lf = mk(d, h, `rotateY(-90deg) translateZ(${w / 2}px)`, bg.side);
+    mk(w, d, `rotateX(90deg) translateZ(${h / 2}px)`, bg.top);
+    return { F: mk(w, h, `translateZ(${d / 2}px)`, bg.front), L: Lf };
+  };
+  const stripes = a => `repeating-linear-gradient(${a}deg,#121214 0 52px,#ededef 52px 104px)`;
+  const hinge = f => { const p = el('div', '', { position: 'absolute', left: '14px', top: '50%', width: '54px', height: '54px', marginTop: '-27px', borderRadius: '8px', background: 'linear-gradient(145deg,#d9dadd,#8d8f95 60%,#5d5f64)', boxShadow: 'inset 0 1px 0 #fff8,0 2px 4px #0008' });
+    for (const [x, y] of [[13, 13], [31, 31]]) p.appendChild(el('div', '', { position: 'absolute', left: x + 'px', top: y + 'px', width: '10px', height: '10px', borderRadius: '50%', background: 'radial-gradient(circle at 35% 35%,#f4f4f6,#55575c 70%)' })); f.appendChild(p); };
+  const cy0 = (SH + GAP) / 2, side = 'linear-gradient(180deg,#1b1c20,#0c0c0e)';
+  const B = box(rig, 0, cy0, W, H, D, { front: 'linear-gradient(170deg,#1a1b1f,#0d0e11 60%,#0a0a0c)', back: '#0c0c0e', side, top: '#26272b', bottom: '#08080a' }, '#0d0d0f');
+  B.F.style.boxShadow = 'inset 0 0 0 2px #2a2b30';
+  const s3 = svgIn(B.F, W, H);
+  const line = (x1, y1, x2, y2) => s3.appendChild(sv('line', { x1, y1, x2, y2, stroke: CH, 'stroke-width': 3, 'stroke-linecap': 'round' }));
+  const label = (x, y, t) => s3.appendChild(sv('text', { x, y, 'font-family': SYS, 'font-weight': 600, 'font-size': 17, 'letter-spacing': 3, fill: LB }, t));
+  const M = 34, R1 = 228, R2 = 448; line(M, R1, W - M, R1); line(M, R2, W - M, R2);
+  label(M + 6, 64, 'PRODUCTION');
+  const tt = sv('text', { x: M + 4, y: 178, 'font-family': SYS, 'font-weight': 900, fill: '#f4f4f6', 'letter-spacing': -1 }); tt.appendChild(sv('tspan', {}, 'CREATOR WORKFLOW')); tt.appendChild(sv('tspan', { fill: GOLD }, '.')); s3.appendChild(tt); fit(tt, W - 2 * M - 10, 120);
+  const cells = [['Edit'], ['Sound', 'Design'], ['Fusion', '& 3D'], ['Color']], cw = (W - 2 * M) / 4;
+  cells.forEach((c, i) => { const x = M + cw * i; if (i) line(x, R1, x, R2); label(x + 18, R1 + 40, 'SCENE');
+    s3.appendChild(sv('text', { x: x + cw - 18, y: R1 + 44, 'text-anchor': 'end', 'font-family': SYS, 'font-weight': 900, 'font-size': 30, fill: GOLD }, '0' + (i + 1)));
+    c.forEach((t, k) => s3.appendChild(sv('text', { x: x + 18, y: R1 + (c.length === 1 ? 160 : 132 + k * 48), 'font-family': SYS, 'font-weight': 600, 'font-size': 44, fill: '#f1f1f3' }, t))); });
+  const half = M + (W - 2 * M) * .42; line(half, R2, half, H - 26);
+  label(M + 6, R2 + 42, 'DIRECTOR'); s3.appendChild(sv('text', { x: M + 6, y: R2 + 118, 'font-family': SYS, 'font-weight': 900, 'font-size': 58, fill: '#f4f4f6', 'letter-spacing': 2 }, 'LIPAY'));
+  label(half + 22, R2 + 42, 'COURSE'); s3.appendChild(sv('text', { x: half + 22, y: R2 + 100, 'font-family': SYS, 'font-weight': 600, 'font-size': 38, fill: '#f1f1f3' }, 'DaVinci Resolve'));
+  s3.appendChild(sv('text', { x: half + 22, y: R2 + 146, 'font-family': SYS, 'font-weight': 600, 'font-size': 22, fill: GOLD, 'letter-spacing': 1 }, 'creatorworkflow.pro'));
+  B.F.appendChild(el('div', 'shade', { background: 'linear-gradient(115deg,rgba(255,255,255,.09),rgba(255,255,255,.02) 30%,transparent 50%)' }));
+  B.L.appendChild(el('div', 'shade', { background: 'rgba(0,0,0,.2)' }));
+  const yS = cy0 - H / 2 - GAP - SH / 2, sside = 'linear-gradient(180deg,#2a2b2f,#141416)';
+  const S1 = box(rig, 0, yS, W, SH, SD, { front: stripes(-62), back: '#111', side: sside, top: 'linear-gradient(90deg,#3a3b40,#26272b)', bottom: '#0b0b0c' }, '#141416'); hinge(S1.F);
+  S1.F.appendChild(el('div', 'shade', { background: 'linear-gradient(180deg,rgba(255,255,255,.08),transparent 40%,rgba(0,0,0,.18))' }));
+  const h0 = `translate3d(${-W / 2}px,${yS - SH / 2 - GAP}px,0)`;
+  const hz = el('div', 'hinge', { transform: `${h0} rotateZ(-17deg)` }); hz.style.setProperty('--h0', h0); rig.appendChild(hz);
+  const S2 = box(hz, W / 2, -SH / 2, W, SH, SD, { front: stripes(62), back: '#111', side: sside, top: 'linear-gradient(90deg,#3a3b40,#26272b)', bottom: 'linear-gradient(90deg,#1c1d20,#101012)' }, '#141416'); hinge(S2.F);
+  S2.F.appendChild(el('div', 'shade', { background: 'linear-gradient(180deg,rgba(255,255,255,.1),transparent 45%,rgba(0,0,0,.16))' }));
+  return { start() {}, stop() {} };
+}
+
+// ---------- Liquid Glass: just the glass on the white page — "Glass" with the liquid capsule over it, no plate, no edges;
+// the TG GIF shader on a white background, a 2:1 window of the stage around the capsule and the drop
+function buildGlass() {
+  const W = 1920, H = 1080, CX = 290, CY = 290, CWD = 1340, CHT = 730;           // the visible window of the stage
+  const obj = $('o-glass'), dw = Math.round(Math.min(innerWidth <= 760 ? 190 : 470, 700 * scaleFor() * 1.5)), dh = dw * CHT / CWD;
+  const box = el('div', '', { position: 'absolute', left: -dw / 2 + 'px', bottom: (innerWidth <= 760 ? 900 * scaleFor() - dh : 900 * scaleFor() - dh) / 2 + 'px', width: dw + 'px', height: dh + 'px', overflow: 'hidden' });
+  obj.appendChild(box);
+  const k = dw / CWD, cv = el('canvas', '', { position: 'absolute', left: -CX * k + 'px', top: -CY * k + 'px', width: W * k + 'px', height: H * k + 'px' });
+  cv.width = W; cv.height = H; box.appendChild(cv);
+  const gl = cv.getContext('webgl2', { antialias: false, alpha: true, premultipliedAlpha: true, preserveDrawingBuffer: true });
+  if (!gl) return { start() {}, stop() {} };
+  const VS = `#version 300 es
+  void main(){ vec2 p=vec2((gl_VertexID<<1)&2,gl_VertexID&2); gl_Position=vec4(p*2.-1.,0.,1.); }`;
+  const FS = `#version 300 es
+  precision highp float;
+  uniform sampler2D bg; uniform vec2 res; uniform float k;
+  uniform vec4 cap; uniform vec4 drop; uniform float goo, thick, frost;
+  out vec4 o;
+  float sdBox(vec2 p, vec2 b, float r){ vec2 q=abs(p)-b+r; return length(max(q,0.))+min(max(q.x,q.y),0.)-r; }
+  float smin(float a, float b, float kk){ float h=max(kk-abs(a-b),0.)/kk; return min(a,b)-h*h*h*kk/6.; }
+  float sdf(vec2 p){ float a=sdBox(p-cap.xy, cap.zw, cap.w); if(drop.w>0.){ float b=length(p-drop.xy)-drop.z; a=smin(a,b,goo); } return a; }
+  vec4 tap(vec2 p){ return texture(bg, p*k/res); }                      // premultiplied: black text on transparent
+  vec4 over(vec4 a, vec3 c, float t){ return a*(1.-t)+vec4(c*t,t); }
+  void main(){
+    vec2 p=vec2(gl_FragCoord.x, res.y-gl_FragCoord.y)/k;
+    vec4 col=tap(p);
+    float d=sdf(p);
+    vec2 e=vec2(.75,0.);
+    vec2 n=vec2(sdf(p+e.xy)-sdf(p-e.xy), sdf(p+e.yx)-sdf(p-e.yx)); n=n/max(length(n),1e-5);
+    float ds=sdf(p-vec2(0.,18.));
+    col=over(col,vec3(0.),.075*(1.-smoothstep(-24.,46.,ds))*step(0.,d));
+    col=over(col,vec3(0.),.16*exp(-max(d,0.)/1.3)*step(0.,d)*(.45+.55*smoothstep(.3,-.9,n.y)));
+    if(d<2.){
+      float bw=mix(16.,48.,thick), u=clamp(-d/bw,0.,1.);
+      float disp=(240.*pow(thick,2.2)+5.)*pow(1.-u,3.);
+      vec2 q=p-n*disp;
+      vec4 g; float R=frost*30.;
+      if(R>.25){ vec4 s=vec4(0.); float rot=6.2832*fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233)))*43758.55), lod=max(0.,log2(R*k/9.));
+        for(int i=0;i<40;i++){ float a=float(i)*2.39996+rot, r=sqrt((float(i)+.5)/40.)*R; s+=textureLod(bg,(q+r*vec2(cos(a),sin(a)))*k/res,lod); } g=s/40.; }
+      else g=tap(q);
+      g=over(g,vec3(.95),.035+.12*frost);
+      float low=exp(min(d,0.)/10.)*smoothstep(-.3,.95,n.y);
+      float top=exp(min(d,0.)/3.2)*smoothstep(.15,-.95,n.y);
+      float side=exp(min(d,0.)/6.)*(1.-abs(n.y));
+      g=over(g,vec3(1.),clamp(.42*low+.1*side,0.,1.)); g=over(g,vec3(0.),.2*top);
+      g=over(g,vec3(1.),smoothstep(-2.,-40.,d)*smoothstep(-130.,-20.,d)*smoothstep(.2,-.8,n.y)*.05);
+      float rim=exp(-abs(d)/1.05);
+      g=over(g,vec3(1.),.55*rim*(.35+.65*smoothstep(-.6,.8,n.y)));
+      col=mix(col,g,clamp(.5-d*k*.7,0.,1.));
+    }
+    o=col;
+  }`;
+  const U = {}, sh = (t, src) => { const x = gl.createShader(t); gl.shaderSource(x, src); gl.compileShader(x); return x; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr); gl.useProgram(pr);
+  gl.bindVertexArray(gl.createVertexArray());
+  for (const n of ['bg', 'res', 'k', 'cap', 'drop', 'goo', 'thick', 'frost']) U[n] = gl.getUniformLocation(pr, n);
+  const t2 = document.createElement('canvas'); t2.width = W; t2.height = H; const c = t2.getContext('2d');
+  c.clearRect(0, 0, W, H); c.font = `500 380px ${SYS}`; c.fillStyle = '#0b0b0b'; c.textBaseline = 'alphabetic';
+  const word = 'Glass', tr = -11, ws = [...word].map(ch => c.measureText(ch).width), WW = ws.reduce((a, b) => a + b, 0) + tr * (word.length - 1);
+  const m = c.measureText(word), base = 540 + (m.actualBoundingBoxAscent - m.actualBoundingBoxDescent) / 2;
+  let x = 960 - WW / 2; for (let i = 0; i < word.length; i++) { c.fillText(word[i], x, base); x += ws[i] + tr; }
+  const tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, t2); gl.generateMipmap(gl.TEXTURE_2D);
+  for (const [a, b] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, a, b);
+  const T = 8, clamp = (q, a = 0, b = 1) => Math.min(b, Math.max(a, q)), ss = (a, b, t) => { const u = clamp((t - a) / (b - a)); return u * u * (3 - 2 * u); };
+  const io = (a, b, t) => { const u = clamp((t - a) / (b - a)); return u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; };
+  function render(t) {   // glassAt from the TG GIF: drift, frost in and out, the drop runs out and melts back
+    const capX = -150 * Math.cos(2 * Math.PI * t / T), frost = io(1.4, 2.2, t) * (1 - io(3.6, 4.4, t));
+    const down = io(4.9, 5.8, t), up = io(6.2, 7.0, t), dr = { x: 250, y: 30 + 310 * down - 310 * up, r: 95, a: ss(4.6, 4.95, t) * (1 - ss(6.95, 7.3, t)) };
+    gl.viewport(0, 0, W, H); gl.uniform1i(U.bg, 0); gl.uniform2f(U.res, W, H); gl.uniform1f(U.k, 1);
+    gl.uniform4f(U.cap, 960 + capX, 540, 422, 140);
+    if (dr.a > 0) gl.uniform4f(U.drop, 960 + capX + dr.x, 540 + dr.y, dr.r * dr.a, 1); else gl.uniform4f(U.drop, 0, 0, 0, 0);
+    gl.uniform1f(U.goo, 105); gl.uniform1f(U.thick, .6); gl.uniform1f(U.frost, frost);
+    gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+  let t = 0, live = false, raf = 0, last = 0;
+  function tick(now) {
+    const dt = Math.min(.05, (now - last) / 1000 || 0); last = now;
+    if (live) t += dt;
+    else { const nt = t + dt * 2.6; if (Math.floor(nt / T) > Math.floor(t / T)) { t = 0; render(0); raf = 0; return; } t = nt; }   // ease out to the rest pose
+    render(t % T); raf = requestAnimationFrame(tick);
+  }
+  render(0);
+  return { start() { live = true; if (!raf) { last = performance.now(); raf = requestAnimationFrame(tick); } }, stop() { live = false; if (!raf && t % T) { last = performance.now(); raf = requestAnimationFrame(tick); } } };
+}
+
+const anim = { 'c-type01': buildType01(), 'c-glass': buildGlass(), 'c-cw': buildCW() };
+const AUTO = { 'c-glass': true, 'c-cw': true };     // these live on their own once landed; Type/01 shows its demo on hover / tap only
+for (const [id, a] of Object.entries(anim)) {
+  const c = $(id);
+  c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse' && document.body.classList.contains('landed')) { c.classList.add('live'); a.start(); } });
+  c.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { c.classList.remove('live'); if (!AUTO[id]) a.stop(); } });
+}
+// phones: tap the Type/01 box to switch its demo on / off
+$('c-type01').querySelector('.slot').addEventListener('click', e => {
+  if (!touch || !document.body.classList.contains('landed')) return;
+  const c = $('c-type01'), on = !c.classList.contains('live'); c.classList.toggle('live', on); on ? anim['c-type01'].start() : anim['c-type01'].stop();
+});
+
+// ---------- open / close the shop
+const wordIn = $('wordIn');
+function flipWord(change) {   // FLIP the wordmark between the centre and the top-left corner
+  const r0 = wordIn.getBoundingClientRect(); change(); const r1 = wordIn.getBoundingClientRect();
+  wordIn.animate([{ transform: `translate(${r0.left - r1.left}px,${r0.top - r1.top}px) scale(${r0.width / r1.width})` }, { transform: 'none' }], { duration: 950, easing: 'cubic-bezier(.7,0,.2,1)' });
+}
+let busy = false;
+
+function open() {
+  if (busy || document.body.classList.contains('shop')) return; busy = true;
+  shake();
+  const b = basket.getBoundingClientRect(), from = { x: b.left + b.width * .5, y: b.top + b.height * .34 };
+  setTimeout(() => {
+    flipWord(() => document.body.classList.add('shop'));
+    const objs = [...document.querySelectorAll('.obj')]; let done = 0;
+    objs.forEach((o, i) => {
+      const r = o.getBoundingClientRect(), dx = from.x - r.left, dy = from.y - r.top, rot = [-24, 14, 26][i];
+      const cur = null;
+      o.classList.add('out');
+      const arc = { transform: `translate(${dx * .45}px,${Math.min(dy, 0) - 160 - 30 * (i % 2)}px) scale(.85) rotate(${-rot * .4}deg)`, offset: .55 };
+      o.animate((cur ? [{ transform: cur, opacity: 1 }] : [
+        { transform: `translate(${dx}px,${dy}px) scale(.18) rotate(${rot}deg)`, opacity: 0 },
+        { transform: `translate(${dx}px,${dy - 70}px) scale(.3) rotate(${rot * .8}deg)`, opacity: 1, offset: .12 }]).concat([
+        arc,
+        { transform: `translate(0px,10px) scale(1.03) rotate(${rot * .06}deg)`, offset: .86 },
+        { transform: 'none' }
+      ]), { duration: 1150, delay: (cur ? 60 : 120) * i, easing: 'cubic-bezier(.25,.8,.3,1)', fill: 'backwards' })
+        .onfinish = () => {
+          o.style.setProperty('--ad', (3.6 + .55 * i) + 's'); o.classList.add('alive'); o.closest('.card').classList.add('in');
+          if (AUTO[o.closest('.card').id]) anim[o.closest('.card').id].start();
+          if (++done === objs.length) { document.body.classList.add('landed'); busy = false; }
+        };
+    });
+  }, 260);
+}
+function close() {
+  if (busy || !document.body.classList.contains('shop')) return; busy = true;
+  for (const [id, a] of Object.entries(anim)) { $(id).classList.remove('live', 'in'); a.stop(); }
+  document.body.classList.remove('landed');
+  document.querySelectorAll('.obj').forEach(o => o.classList.remove('alive'));
+  const b = basket.getBoundingClientRect(), to = { x: b.left + b.width * .5, y: b.top + b.height * .3 };
+  const objs = [...document.querySelectorAll('.obj')]; let done = 0;
+  objs.forEach((o, i) => {
+    const r = o.getBoundingClientRect(), dx = to.x - r.left, dy = to.y - r.top;
+    o.animate([{ transform: 'none', opacity: 1 }, { transform: `translate(${dx * .5}px,${Math.min(dy, 0) - 120}px) scale(.6) rotate(${[-10, 8, 12][i]}deg)`, offset: .45 }, { transform: `translate(${dx}px,${dy}px) scale(.12) rotate(${[-24, 14, 26][i]}deg)`, opacity: 0 }],
+      { duration: 650, delay: 70 * (objs.length - 1 - i), easing: 'cubic-bezier(.5,0,.6,1)' })
+      .onfinish = () => { o.classList.remove('out'); if (++done === objs.length) { flipWord(() => document.body.classList.remove('shop')); busy = false; } };
+  });
+}
+hit.addEventListener('click', () => document.body.classList.contains('shop') ? close() : open());
+hit.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hit.click(); } });
+addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+if (location.hash === '#shop') setTimeout(open, 700);
+$('word').addEventListener('click', () => { if (document.body.classList.contains('landed')) close(); });
+</script>
+</body></html>

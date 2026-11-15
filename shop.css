@@ -1,0 +1,5 @@
+/* lipayshop®: the logo in the corner and in the footer of every page — a link back to the shop home. The pages keep their own design. */
+.logo.shop-logo{font-size:30px;font-weight:900;letter-spacing:-.065em;line-height:1;display:inline-flex;align-items:flex-start}
+.logo.shop-logo sup{font-size:.42em;font-weight:600;letter-spacing:0;line-height:1;margin:.02em 0 0 .02em;vertical-align:top;color:inherit}
+.logo.shop-logo:hover{opacity:.7}
+footer .logo.shop-logo{font-size:24px}
